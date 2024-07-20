@@ -1,0 +1,6 @@
+---
+version: 1
+applications:
+- name: dockerproj
+  routes:
+  - route: dockerproj-[ezelllow].apps.smu.hackathon.systems
