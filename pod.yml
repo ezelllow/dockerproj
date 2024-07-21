@@ -1,28 +1,27 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: apps/v1  # Specifies the API version
+kind: Deployment  # Specifies that this is a Deployment resource
 metadata:
-  name: dockerproj-deployment
-  namespace: dockerproj-nspace
+  name: dockerproj-deployment  # Name of the deployment
+  namespace: dockerproj-nspace  # Namespace where the deployment is created
 spec:
-  replicas: 3
+  replicas: 3  # Number of pod replicas to run
   selector:
     matchLabels:
-      app: dockerproj
+      app: dockerproj  # Label selector to identify pods managed by this deployment
   template:
     metadata:
       labels:
-        app: dockerproj
+        app: dockerproj  # Label to identify pods created by this deployment
     spec:
       containers:
-      - name: dockerproj
-        image: ezelllow/dockerproj:latest
+      - name: dockerproj  # Name of the container
+        image: ezelllow/dockerproj:latest  # Docker image to use for the container
         ports:
-        - containerPort: 5001
+        - containerPort: 5001  # Port that the container listens on
         volumeMounts:
-        - name: log-volume
-          mountPath: /mnt/log
+        - name: log-volume  # Name of the volume to mount
+          mountPath: /mnt/log  # Path inside the container where the volume is mounted
       volumes:
-      - name: log-volume
+      - name: log-volume  # Name of the volume, matching the name in volumeMounts
         persistentVolumeClaim:
-          claimName: hostpath-pvc
-
+          claimName: hostpath-pvc  # Name of the PVC to use for this volume

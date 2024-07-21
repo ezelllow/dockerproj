@@ -1,14 +1,13 @@
-apiVersion: v1
-kind: PersistentVolume
+apiVersion: v1  # Specifies the API version
+kind: PersistentVolume  # Specifies that this is a PersistentVolume resource
 metadata:
-  name: hostpath-pv
+  name: hostpath-pv  # Name of the persistent volume
   labels:
-    type: local
+    type: local  # Label to identify the type of volume
 spec:
   capacity:
-    storage: 1Gi
+    storage: 1Gi  # Storage capacity of the volume
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteOnce  # Access mode for the volume
   hostPath:
-    path: "/mnt/data"
-
+    path: "/mnt/data"  # Path on the host where the volume is stored

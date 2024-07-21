@@ -1,13 +1,12 @@
-apiVersion: v1
-kind: PersistentVolumeClaim
+apiVersion: v1  # Specifies the API version
+kind: PersistentVolumeClaim  # Specifies that this is a PersistentVolumeClaim resource
 metadata:
-  name: hostpath-pvc
-  namespace: dockerproj-nspace
+  name: hostpath-pvc  # Name of the persistent volume claim
+  namespace: dockerproj-nspace  # Namespace where the PVC is created
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteOnce  # Access mode requested for the volume
   resources:
     requests:
-      storage: 1Gi
-  storageClassName: local-path
-
+      storage: 1Gi  # Amount of storage requested
+  storageClassName: local-path  # Name of the storage class to use
