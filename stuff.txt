@@ -1,0 +1,86 @@
+Here's a compilation of the command lines used in the documents, divided into sections with brief descriptions:
+
+1. Linux and Python Setup
+Description: Commands for setting up the Linux environment and running the Python Flask application.
+
+
+python3 app/app.py
+pip3 install flask
+
+
+2. Docker Commands
+Description: Commands for building, running, and managing Docker images and containers.
+
+
+docker build -t flask-app .
+docker image ls
+docker run flask-app
+docker run -d -p 5000:5000 flask-app
+docker login
+docker image tag flask-app {your namespace}/flask-app
+docker push {your namespace}/flask-app
+
+
+3. Kubernetes Pod Management
+Description: Commands for creating, viewing, and deleting Kubernetes pods.
+
+
+kubectl get nodes
+kubectl run my-flask-app --image={your namespace}/flask-app
+kubectl get pods
+kubectl describe pod my-flask-app
+kubectl delete pod my-flask-app
+
+
+4. Kubernetes Deployment Management
+Description: Commands for creating, scaling, and managing Kubernetes deployments.
+
+
+kubectl create deployment my-flask-app --image={your namespace}/flask-app
+kubectl get deployments
+kubectl describe deployment my-flask-app
+kubectl scale deployment my-flask-app --replicas=5
+
+
+5. Kubernetes Service Management
+Description: Commands for exposing deployments as services and managing them.
+
+
+kubectl expose deployment my-flask-app --type=NodePort --port=5000
+kubectl delete services my-flask-app
+
+
+6. Kubernetes Namespace Management
+Description: Commands for creating and managing Kubernetes namespaces.
+
+
+kubectl create namespace myflask-app-nspace
+kubectl get namespace
+
+
+7. Kubernetes ConfigMap and Secret Management
+Description: Commands for creating and managing ConfigMaps and Secrets in Kubernetes.
+
+
+kubectl create secret generic test-secret --from-literal=password=ilovedevops
+kubectl get secret test-secret -o yaml
+
+
+8. Kubernetes YAML File Operations
+Description: Commands for applying and managing Kubernetes resources using YAML files.
+
+
+kubectl apply -f pod.yml
+kubectl apply -f lab9-configmap.yml
+kubectl apply -f lab9-pv.yml
+
+
+9. Miscellaneous Kubernetes Commands
+Description: Various other Kubernetes commands for different operations.
+
+
+kubectl exec env-pod -- env
+kubectl get pv
+
+
+These command lines cover various aspects of working with Docker, Kubernetes, and related technologies in a Linux environment.
